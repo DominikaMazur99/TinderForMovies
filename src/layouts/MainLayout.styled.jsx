@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
     width: 100vw;
@@ -57,4 +57,23 @@ export const MovieCard = styled.div`
     p {
         margin: 10px;
     }
+`;
+
+const spin = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+`;
+
+export const Loader = styled.div`
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: ${spin} 1s linear infinite;
+    margin: 75px auto;
 `;
