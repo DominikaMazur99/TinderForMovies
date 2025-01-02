@@ -6,8 +6,8 @@ export const NavbarContainer = styled.div`
     align-items: center;
     width: 100vw;
     height: 50px;
-    background-color: #333;
-    color: white;
+    background-color: #4a4a4a;
+    color: #ffffff;
     position: fixed;
     bottom: 0;
     left: 0;

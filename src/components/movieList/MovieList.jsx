@@ -1,11 +1,12 @@
 import React from "react";
 import { MovieGrid } from "../../layouts/MainLayout.styled";
+import { MovieCard } from "./MovieList.style";
 
 const MovieList = ({ movies }) => {
     return (
         <MovieGrid>
             {movies.map((movie) => (
-                <div key={movie.id}>
+                <MovieCard key={movie.id}>
                     <img
                         src={movie.imageURL}
                         alt={movie.title}
@@ -16,7 +17,7 @@ const MovieList = ({ movies }) => {
                     <p>
                         <strong>Rating:</strong> {movie.rating}
                     </p>
-                </div>
+                </MovieCard>
             ))}
         </MovieGrid>
     );
