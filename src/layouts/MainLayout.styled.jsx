@@ -14,7 +14,6 @@ export const Content = styled.div`
     flex: 1;
     overflow-y: auto;
     padding: 20px;
-    max-width: 1200px;
     padding-bottom: 70px;
 `;
 

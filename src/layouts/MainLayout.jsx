@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Container, Content } from "./MainLayout.styled";
-import NavbarComponent from "../components/navbar/NavbarComponent";
 import MovieList from "../components/movieList/MovieList";
+import { IoLibraryOutline } from "react-icons/io5";
+import { ButtonContainer } from "../components/movieList/movieItem/Movieitem.style";
+import IconButton from "../components/buttons/IconButton";
 
 const MainLayout = () => {
     const [movies, setMovies] = useState([]);
@@ -26,14 +28,21 @@ const MainLayout = () => {
     return (
         <Container>
             <Content>
-                <h1>Movie Recommendations</h1>
+                <ButtonContainer>
+                    <h1>Movie Recommendations</h1>
+                    <IconButton
+                        tooltip="Show accepted movies list"
+                        content={<IoLibraryOutline size={30} color="white" />}
+                    />
+                </ButtonContainer>
+
                 {loading ? (
                     <p>Loading movies...</p>
                 ) : (
                     <MovieList movies={movies} />
                 )}
             </Content>
-            <NavbarComponent />
+            {/* <NavbarComponent /> */}
         </Container>
     );
 };
