@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { getMovies } from "../../api/movieService";
+import React from "react";
+import { MovieGrid } from "../../layouts/MainLayout.styled";
 
-const MovieList = () => {
-    const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-        fetch("/api/movies")
-            .then((res) => res.json())
-            .then((data) => setMovies(data));
-    }, []);
-
+const MovieList = ({ movies }) => {
     return (
-        <div>
-            {movies?.map((movie) => (
+        <MovieGrid>
+            {movies.map((movie) => (
                 <div key={movie.id}>
                     <img
                         src={movie.imageURL}
@@ -26,7 +18,7 @@ const MovieList = () => {
                     </p>
                 </div>
             ))}
-        </div>
+        </MovieGrid>
     );
 };
 

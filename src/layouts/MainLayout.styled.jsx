@@ -1,9 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+`;
+
+export const Content = styled.div`
+    flex: 1;
+    overflow-y: auto;
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    padding-bottom: 70px;
 `;
 
 export const MovieGrid = styled.div`
@@ -12,18 +22,15 @@ export const MovieGrid = styled.div`
     gap: 20px;
 
     @media (min-width: 1024px) {
-        grid-template-columns: repeat(4, 1fr); // 4 kolumny na dużych ekranach
+        grid-template-columns: repeat(4, 1fr);
     }
 
     @media (min-width: 768px) and (max-width: 1023px) {
-        grid-template-columns: repeat(
-            3,
-            1fr
-        ); // 3 kolumny na mniejszych desktopach
+        grid-template-columns: repeat(3, 1fr);
     }
 
     @media (max-width: 767px) {
-        grid-template-columns: repeat(1, 1fr); // 1 kolumna na mobilnych
+        grid-template-columns: repeat(1, 1fr);
     }
 `;
 
