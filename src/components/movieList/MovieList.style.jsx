@@ -9,8 +9,6 @@ export const MovieCard = styled.div`
     transition: transform 0.2s, box-shadow 0.2s;
 
     &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         cursor: pointer;
     }
 

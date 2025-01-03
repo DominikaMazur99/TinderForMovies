@@ -4,7 +4,7 @@ import { MovieGrid } from "../../layouts/MainLayout.styled";
 import MovieItem from "./movieItem/MovieItem";
 import LazyLoader from "../loader/LazyLoader";
 
-const MovieList = ({ movies, onAccept, onReject }) => {
+const MovieList = ({ movies, onAccept, onReject, type }) => {
     const [visibleCount, setVisibleCount] = useState(8);
 
     const loadMoreMovies = () => {
@@ -21,6 +21,7 @@ const MovieList = ({ movies, onAccept, onReject }) => {
                     movie={movie}
                     onAccept={onAccept}
                     onReject={onReject}
+                    type={type}
                 />
             ))}
             {visibleCount < movies.length && (

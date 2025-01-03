@@ -35,29 +35,6 @@ export const MovieGrid = styled.div`
     }
 `;
 
-export const MovieCard = styled.div`
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-
-    &:hover {
-        transform: scale(1.03);
-    }
-
-    img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    h3,
-    p {
-        margin: 10px;
-    }
-`;
-
 const spin = keyframes`
     from {
         transform: rotate(0deg);

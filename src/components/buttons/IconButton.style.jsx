@@ -11,8 +11,8 @@ export const Button = styled.button`
 
 export const Tooltip = styled.div`
     position: absolute;
-    bottom: 120%; /* Nad przyciskiem */
-    left: 50%;
+    bottom: 30%;
+    right: 10%;
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
