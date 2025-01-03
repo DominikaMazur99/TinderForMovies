@@ -165,7 +165,7 @@ import { http } from "msw";
 //     },
 // ];
 
-const movies = Array.from({ length: 100 }, (_, index) => ({
+let movies = Array.from({ length: 100 }, (_, index) => ({
     id: `${index + 1}`,
     imageURL:
         "https://upload.wikimedia.org/wikipedia/en/a/a2/Star_Wars_The_Force_Awakens_Theatrical_Poster.jpg",
@@ -176,9 +176,44 @@ const movies = Array.from({ length: 100 }, (_, index) => ({
     rating: (Math.random() * 4 + 6).toFixed(1), // Generuje oceny w zakresie 6.0 - 10.0
 }));
 
+let acceptedMovies = [];
+
 export const handler = [
     http.get("/api/movies", ({ request }) => {
         return new Response(JSON.stringify(movies), {
+            headers: { "Content-Type": "application/json" },
+            status: 200,
+        });
+    }),
+    http.get("/api/movies/accepted", () => {
+        return new Response(JSON.stringify(acceptedMovies), {
+            headers: { "Content-Type": "application/json" },
+            status: 200,
+        });
+    }),
+    http.patch("/api/movies/:id", async ({ params, request }) => {
+        const { id } = params;
+        const { status } = await request.json();
+
+        const movieIndex = movies.findIndex((movie) => movie.id === id);
+
+        if (movieIndex === -1) {
+            return new Response(
+                JSON.stringify({ message: "Movie not found" }),
+                { status: 404 }
+            );
+        }
+
+        const movie = movies[movieIndex];
+
+        if (status === "accepted") {
+            acceptedMovies.push(movie);
+        }
+
+        // Usuń film z listy głównej (accepted/rejected)
+        movies = movies.filter((movie) => movie.id !== id);
+
+        return new Response(JSON.stringify(movie), {
             headers: { "Content-Type": "application/json" },
             status: 200,
         });
