@@ -17,6 +17,12 @@ export const Content = styled.div`
     padding-bottom: 70px;
 `;
 
+export const Header = styled.div`
+    padding: 20px 20px 0 20px;
+    background-color: #4a4a4a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
 export const MovieGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

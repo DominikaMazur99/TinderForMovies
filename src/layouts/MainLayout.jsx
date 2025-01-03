@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Content } from "./MainLayout.styled";
+import { Container, Content, Header } from "./MainLayout.styled";
 import MovieList from "../components/movieList/MovieList";
 import { IoLibraryOutline } from "react-icons/io5";
 import { ButtonContainer } from "../components/movieList/movieItem/Movieitem.style";
@@ -86,7 +86,7 @@ const MainLayout = () => {
     return (
         <>
             <Container>
-                <Content>
+                <Header>
                     <ButtonContainer>
                         <h1>Movie Recommendations</h1>
                         <IconButton
@@ -97,7 +97,8 @@ const MainLayout = () => {
                             onClick={handleShowAcceptedMovies}
                         />
                     </ButtonContainer>
-
+                </Header>
+                <Content>
                     {loading ? (
                         <p>Loading movies...</p>
                     ) : (
