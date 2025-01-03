@@ -15,11 +15,11 @@ const MainLayout = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const res = await fetch("/api/movies");
+                const res = await fetch("/api/recommendations");
                 const data = await res.json();
                 setMovies(data);
             } catch (error) {
-                console.error("Error fetching movies:", error);
+                console.error("Error fetching recommendations:", error);
             } finally {
                 setLoading(false);
             }
@@ -31,11 +31,14 @@ const MainLayout = () => {
     useEffect(() => {
         const fetchAcceptedMovies = async () => {
             try {
-                const res = await fetch("/api/movies/accepted");
+                const res = await fetch("/api/recommendations/accepted");
                 const data = await res.json();
                 setAcceptedMovies(data);
             } catch (error) {
-                console.error("Error fetching accepted movies:", error);
+                console.error(
+                    "Error fetching accepted recommendations:",
+                    error
+                );
             }
         };
 
@@ -43,7 +46,7 @@ const MainLayout = () => {
     }, []);
 
     const handleAccept = async (id) => {
-        const res = await fetch(`/api/movies/${id}`, {
+        const res = await fetch(`/api/recommendations/${id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ status: "accepted" }),
@@ -60,7 +63,7 @@ const MainLayout = () => {
     };
 
     const handleReject = async (id) => {
-        const res = await fetch(`/api/movies/${id}`, {
+        const res = await fetch(`/api/recommendations/${id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ status: "rejected" }),

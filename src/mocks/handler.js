@@ -179,19 +179,19 @@ let movies = Array.from({ length: 100 }, (_, index) => ({
 let acceptedMovies = [];
 
 export const handler = [
-    http.get("/api/movies", ({ request }) => {
+    http.get("/api/recommendations", ({ request }) => {
         return new Response(JSON.stringify(movies), {
             headers: { "Content-Type": "application/json" },
             status: 200,
         });
     }),
-    http.get("/api/movies/accepted", () => {
+    http.get("/api/recommendations/accepted", () => {
         return new Response(JSON.stringify(acceptedMovies), {
             headers: { "Content-Type": "application/json" },
             status: 200,
         });
     }),
-    http.patch("/api/movies/:id", async ({ params, request }) => {
+    http.patch("/api/recommendations/:id", async ({ params, request }) => {
         const { id } = params;
         const { status } = await request.json();
 
