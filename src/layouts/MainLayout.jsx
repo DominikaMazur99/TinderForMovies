@@ -5,6 +5,7 @@ import { IoLibraryOutline } from "react-icons/io5";
 import { ButtonContainer } from "../components/movieList/movieItem/Movieitem.style";
 import IconButton from "../components/buttons/IconButton";
 import DialogComponent from "../components/dialogs/DialogComponent";
+import SwiperComponent from "../components/movieList/SwiperComponent";
 
 const MainLayout = () => {
     const [movies, setMovies] = useState([]);
@@ -85,6 +86,7 @@ const MainLayout = () => {
     const handleCloseModal = () => {
         setShowAcceptedMovies(false);
     };
+    const isMobile = window.innerWidth <= 768;
 
     return (
         <>
@@ -101,17 +103,26 @@ const MainLayout = () => {
                         />
                     </ButtonContainer>
                 </Header>
-                <Content>
-                    {loading ? (
-                        <p>Loading movies...</p>
-                    ) : (
-                        <MovieList
-                            movies={movies}
-                            onAccept={handleAccept}
-                            onReject={handleReject}
-                        />
-                    )}
-                </Content>
+                {isMobile ? (
+                    <SwiperComponent
+                        movies={movies}
+                        onReject={handleReject}
+                        onAccept={handleAccept}
+                    />
+                ) : (
+                    <Content>
+                        {loading ? (
+                            <p>Loading movies...</p>
+                        ) : (
+                            <MovieList
+                                movies={movies}
+                                onAccept={handleAccept}
+                                onReject={handleReject}
+                            />
+                        )}
+                    </Content>
+                )}
+
                 {/* <NavbarComponent /> */}
             </Container>
             <DialogComponent
