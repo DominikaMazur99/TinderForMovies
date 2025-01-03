@@ -4,7 +4,6 @@ export const MovieCard = styled.div`
     display: grid;
     grid-template-rows: 4fr 1fr;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
     transition: transform 0.2s, box-shadow 0.2s;
     min-height: 90%;
     border: 1px solid #3a3a3a;
@@ -25,7 +24,8 @@ export const MovieCard = styled.div`
         height: auto;
         max-height: 400px;
         object-fit: contain;
-        border-radius: 8px;
+        border-radius: 8px 8px 0 0;
+
         background-color: #000;
         ${({ $isMobile }) =>
             !$isMobile &&

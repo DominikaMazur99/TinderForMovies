@@ -9,3 +9,7 @@ export const ButtonContainer = styled.div`
         cursor: pointer;
     }
 `;
+
+export const CardContent = styled.div`
+    padding: 10px;
+`;

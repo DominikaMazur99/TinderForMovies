@@ -36,8 +36,7 @@ export const DialogContainer = styled.div`
 
 export const DialogHeader = styled.div`
     padding: 20px 20px 0 20px;
-    background-color: #4a4a4a;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
