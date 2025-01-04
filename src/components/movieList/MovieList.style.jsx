@@ -20,15 +20,19 @@ export const MovieCard = styled.div`
         width: 100%;
         max-width: 100%;
         height: auto;
-        max-height: 400px;
+        max-height: 200px;
         object-fit: contain;
         border-radius: 8px 8px 0 0;
-
         background-color: #000;
+
         ${({ $isMobile }) =>
-            !$isMobile &&
+            $isMobile &&
             css`
                 max-height: 200px;
+
+                @media (min-height: 800px) {
+                    max-height: 400px;
+                }
             `}
     }
 
