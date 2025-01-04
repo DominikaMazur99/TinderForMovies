@@ -2,6 +2,7 @@ import IconButton from "../../buttons/IconButton";
 import { MovieCard } from "../MovieList.style";
 import { SlCheck, SlClose } from "react-icons/sl";
 import { ButtonContainer, CardContent } from "./Movieitem.style";
+import { useEffect } from "react";
 
 const MovieItem = ({
     movie,
@@ -9,7 +10,23 @@ const MovieItem = ({
     onReject,
     type = "all",
     isMobile = false,
+    setImgClicked,
+    distanceChange,
 }) => {
+    const handleMouseDown = () => {
+        setImgClicked(true);
+    };
+
+    const handleMouseUp = () => {
+        setImgClicked(false);
+    };
+
+    useEffect(() => {
+        if (distanceChange) {
+            setImgClicked(false);
+        }
+    }, [distanceChange]);
+
     const renderButtons = () => (
         <ButtonContainer>
             <IconButton
@@ -38,6 +55,10 @@ const MovieItem = ({
                     <img
                         src={movie.imageURL}
                         alt={movie.title}
+                        onMouseDown={isMobile ? handleMouseDown : null}
+                        onMouseUp={isMobile ? handleMouseUp : null}
+                        onTouchStart={isMobile ? handleMouseDown : null}
+                        onTouchEnd={isMobile ? handleMouseUp : null}
                         loading="lazy"
                     />
                     <CardContent>

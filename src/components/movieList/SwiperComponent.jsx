@@ -8,6 +8,7 @@ const SwiperComponent = ({ movies, onReject, onAccept }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [swipeDirection, setSwipeDirection] = useState(null);
     const [swipeDistance, setSwipeDistance] = useState(0);
+    const [imgClicked, setImgClicked] = useState(false);
     const SWIPE_THRESHOLD = 150;
 
     const handleSwipeComplete = () => {
@@ -61,22 +62,27 @@ const SwiperComponent = ({ movies, onReject, onAccept }) => {
             <Overlay
                 $swipeDirection={swipeDirection}
                 $swipeDistance={swipeDistance}
+                $imgClicked={imgClicked}
             >
                 {swipeDirection === "right" && (
                     <SwipeInfo $swipeDistance={swipeDistance}>
-                        <p> Reject Recommendation</p>
-
-                        <Arrow $swipeDirection={swipeDirection}>
+                        <p>Reject Recommendation</p>
+                        <Arrow>
                             <IoIosArrowForward />
                         </Arrow>
                     </SwipeInfo>
                 )}
                 {swipeDirection === "left" && (
                     <SwipeInfo $swipeDistance={swipeDistance}>
-                        <Arrow $swipeDirection={swipeDirection}>
+                        <Arrow>
                             <IoIosArrowBack />
                         </Arrow>
-                        <p> Accept Recommendation</p>
+                        <p>Accept Recommendation</p>
+                    </SwipeInfo>
+                )}
+                {imgClicked && (
+                    <SwipeInfo>
+                        <p>Shift left to accept or right to delete</p>
                     </SwipeInfo>
                 )}
             </Overlay>
@@ -85,6 +91,8 @@ const SwiperComponent = ({ movies, onReject, onAccept }) => {
                 movie={movies[currentIndex]}
                 onAccept={onAccept}
                 onReject={onReject}
+                setImgClicked={setImgClicked}
+                distanceChange={swipeDistance !== 0}
                 isMobile
             />
         </SwiperContainer>

@@ -60,10 +60,13 @@ export const Overlay = styled.div`
     justify-content: center;
     align-items: center;
     pointer-events: none;
-    transition: opacity 0.2s ease, background 0.2s ease;
-    opacity: ${({ $swipeDistance }) => ($swipeDistance ? 1 : 0)};
-    background: ${({ $swipeDirection }) =>
-        $swipeDirection === "right"
+    transition: opacity 0.3s ease, background 0.3s ease;
+    opacity: ${({ $imgClicked, $swipeDistance }) =>
+        $imgClicked || $swipeDistance ? 1 : 0};
+    background: ${({ $imgClicked, $swipeDirection }) =>
+        $imgClicked
+            ? "rgba(0, 0, 0, 0.7)"
+            : $swipeDirection === "right"
             ? "rgba(255, 0, 0, 0.4)"
             : $swipeDirection === "left"
             ? "rgba(0, 255, 0, 0.4)"
