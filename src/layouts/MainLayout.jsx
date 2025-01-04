@@ -6,6 +6,7 @@ import { ButtonContainer } from "../components/movieList/movieItem/Movieitem.sty
 import IconButton from "../components/buttons/IconButton";
 import DialogComponent from "../components/dialogs/DialogComponent";
 import SwiperComponent from "../components/movieList/SwiperComponent";
+import { fetchData } from "../services/api";
 
 const MainLayout = () => {
     const [movies, setMovies] = useState([]);
@@ -14,68 +15,63 @@ const MainLayout = () => {
     const [showAcceptedMovies, setShowAcceptedMovies] = useState(false);
 
     useEffect(() => {
-        const fetchMovies = async () => {
+        const loadMovies = async () => {
             try {
-                const res = await fetch("/api/recommendations");
-                const data = await res.json();
+                const data = await fetchData("/api/recommendations");
                 setMovies(data);
             } catch (error) {
-                console.error("Error fetching recommendations:", error);
+                console.error("Failed to load movies.");
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchMovies();
+        loadMovies();
     }, []);
 
     useEffect(() => {
-        const fetchAcceptedMovies = async () => {
+        const loadAcceptedMovies = async () => {
             try {
-                const res = await fetch("/api/recommendations/accepted");
-                const data = await res.json();
+                const data = await fetchData("/api/recommendations/accepted");
                 setAcceptedMovies(data);
             } catch (error) {
-                console.error(
-                    "Error fetching accepted recommendations:",
-                    error
-                );
+                console.error("Failed load accepted recommendations:", error);
             }
         };
 
-        fetchAcceptedMovies();
+        loadAcceptedMovies();
     }, []);
 
     const handleAccept = async (id) => {
-        const res = await fetch(`/api/recommendations/${id}`, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ status: "accepted" }),
-        });
-
-        if (res.ok) {
-            const updatedMovie = await res.json();
+        try {
+            const updatedMovie = await fetchData(
+                `/api/recommendations/${id}`,
+                "PATCH",
+                { status: "accepted" }
+            );
 
             setMovies((prev) =>
                 prev.filter((movie) => movie.id !== updatedMovie.id)
             );
             setAcceptedMovies((prev) => [...prev, updatedMovie]);
+        } catch (error) {
+            console.error("Error during accept action.");
         }
     };
 
     const handleReject = async (id) => {
-        const res = await fetch(`/api/recommendations/${id}`, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ status: "rejected" }),
-        });
-
-        if (res.ok) {
-            const updatedMovie = await res.json();
+        try {
+            const updatedMovie = await fetchData(
+                `/api/recommendations/${id}`,
+                "PATCH",
+                { status: "rejected" }
+            );
 
             setMovies((prev) =>
                 prev.filter((movie) => movie.id !== updatedMovie.id)
             );
+        } catch (error) {
+            console.error("Error during reject action.");
         }
     };
 

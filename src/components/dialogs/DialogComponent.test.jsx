@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import DialogComponent from "./DialogComponent";
-import { IoReturnDownBack } from "react-icons/io5";
 
 const mockAcceptedMovies = [
     {
