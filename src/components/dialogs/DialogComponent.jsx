@@ -6,7 +6,7 @@ import {
     DialogContent,
 } from "./DialogComponent.style";
 import MovieList from "../movieList/MovieList";
-import { IoMdClose } from "react-icons/io";
+import { IoReturnDownBack } from "react-icons/io5";
 import IconButton from "../buttons/IconButton";
 
 const DialogComponent = ({ show, onClose, acceptedMovies }) => {
@@ -26,7 +26,7 @@ const DialogComponent = ({ show, onClose, acceptedMovies }) => {
                 <DialogHeader>
                     <h2>Accepted Movies</h2>
                     <IconButton
-                        content={<IoMdClose size={30} color="white" />}
+                        content={<IoReturnDownBack size={30} color="white" />}
                         onClick={onClose}
                     />
                 </DialogHeader>

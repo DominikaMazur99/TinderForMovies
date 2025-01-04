@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const Container = styled.div`
     width: 100vw;
@@ -15,6 +15,10 @@ export const Content = styled.div`
     overflow-y: auto;
     padding: 20px;
     padding-bottom: 70px;
+`;
+
+export const AppTitle = styled.h1`
+    font-size: ${({ $isMobile }) => ($isMobile ? `22px` : "30px")};
 `;
 
 export const Header = styled.div`

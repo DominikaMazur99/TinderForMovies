@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Content, Header } from "./MainLayout.styled";
+import { AppTitle, Container, Content, Header } from "./MainLayout.styled";
 import MovieList from "../components/movieList/MovieList";
 import { IoLibraryOutline } from "react-icons/io5";
 import { ButtonContainer } from "../components/movieList/movieItem/Movieitem.style";
@@ -93,7 +93,9 @@ const MainLayout = () => {
             <Container>
                 <Header>
                     <ButtonContainer>
-                        <h1>Movie Recommendations</h1>
+                        <AppTitle $isMobile={isMobile}>
+                            Movie Recommendations
+                        </AppTitle>
                         <IconButton
                             tooltip="Show accepted movies list"
                             content={

@@ -5,7 +5,8 @@ export const Button = styled.button`
     background-color: transparent;
     &:hover {
         cursor: pointer;
-        transform: scale(1.03);
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
     }
 `;
 
