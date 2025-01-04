@@ -53,7 +53,11 @@ const SwiperComponent = ({ movies, onReject, onAccept }) => {
     }
 
     return (
-        <SwiperContainer {...handlers} $swipeDistance={swipeDistance}>
+        <SwiperContainer
+            {...handlers}
+            $swipeDistance={swipeDistance}
+            data-testid="swiper"
+        >
             <Overlay
                 $swipeDirection={swipeDirection}
                 $swipeDistance={swipeDistance}

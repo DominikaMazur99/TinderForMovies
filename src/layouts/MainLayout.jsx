@@ -124,8 +124,6 @@ const MainLayout = () => {
                         )}
                     </Content>
                 )}
-
-                {/* <NavbarComponent /> */}
             </Container>
             <DialogComponent
                 show={showAcceptedMovies}

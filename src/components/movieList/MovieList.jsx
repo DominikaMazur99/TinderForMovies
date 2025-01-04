@@ -17,6 +17,7 @@ const MovieList = ({ movies, onAccept, onReject, type }) => {
         <MovieGrid>
             {movies.slice(0, visibleCount).map((movie) => (
                 <MovieItem
+                    data-testid="movie-item"
                     key={movie.id}
                     movie={movie}
                     onAccept={onAccept}
@@ -25,7 +26,10 @@ const MovieList = ({ movies, onAccept, onReject, type }) => {
                 />
             ))}
             {visibleCount < movies.length && (
-                <LazyLoader onLoadMore={loadMoreMovies} />
+                <LazyLoader
+                    onLoadMore={loadMoreMovies}
+                    data-testid="lazy-loader"
+                />
             )}
         </MovieGrid>
     );
