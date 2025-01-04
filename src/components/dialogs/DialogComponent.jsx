@@ -21,8 +21,8 @@ const DialogComponent = ({ show, onClose, acceptedMovies }) => {
     if (!show) return null;
 
     return (
-        <Backdrop onClick={handleBackdropClick}>
-            <DialogContainer ref={dialogRef}>
+        <Backdrop onClick={handleBackdropClick} data-testid="backdrop">
+            <DialogContainer ref={dialogRef} role="dialog" aria-modal="true">
                 <DialogHeader>
                     <h2>Accepted Movies</h2>
                     <IconButton

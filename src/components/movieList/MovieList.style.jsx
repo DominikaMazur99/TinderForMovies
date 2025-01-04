@@ -1,8 +1,6 @@
 import styled, { css } from "styled-components";
 
 export const MovieCard = styled.div`
-    display: grid;
-    grid-template-rows: 4fr 1fr;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     min-height: 90%;

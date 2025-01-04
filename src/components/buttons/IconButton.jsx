@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Tooltip } from "./IconButton.style";
 
-const IconButton = ({ content, tooltip, onClick, style }) => {
+const IconButton = ({ content, tooltip, onClick, style, ariaLabel }) => {
     const [showTooltip, setShowTooltip] = useState(false);
 
     return (
@@ -11,6 +11,7 @@ const IconButton = ({ content, tooltip, onClick, style }) => {
                 onMouseLeave={() => setShowTooltip(false)}
                 onClick={onClick}
                 style={style}
+                aria-label={ariaLabel}
             >
                 {content}
             </Button>
