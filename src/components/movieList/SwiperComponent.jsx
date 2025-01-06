@@ -57,7 +57,7 @@ const SwiperComponent = ({ movies, onReject, onAccept }) => {
     });
 
     if (currentIndex >= movies.length) {
-        return <p>No more recommendations</p>;
+        return <p style={{ padding: "30px" }}>No more recommendations</p>;
     }
 
     return (

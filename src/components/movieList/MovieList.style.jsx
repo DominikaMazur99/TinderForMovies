@@ -3,7 +3,10 @@ import styled, { css } from "styled-components";
 export const MovieCard = styled.div`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
-    min-height: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid #3a3a3a;
     border-radius: 10px;
     background-color: #4a4a4a;
@@ -19,8 +22,7 @@ export const MovieCard = styled.div`
     img {
         width: 100%;
         max-width: 100%;
-        height: auto;
-        max-height: 200px;
+        height: 200px;
         object-fit: contain;
         border-radius: 8px 8px 0 0;
         background-color: #000;
@@ -28,10 +30,8 @@ export const MovieCard = styled.div`
         ${({ $isMobile }) =>
             $isMobile &&
             css`
-                max-height: 200px;
-
                 @media (min-height: 800px) {
-                    max-height: 400px;
+                    height: 400px;
                 }
             `}
     }

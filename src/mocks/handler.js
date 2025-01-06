@@ -165,16 +165,97 @@ import { http } from "msw";
 //     },
 // ];
 
-let movies = Array.from({ length: 100 }, (_, index) => ({
-    id: `${index + 1}`,
-    imageURL:
-        "https://upload.wikimedia.org/wikipedia/en/a/a2/Star_Wars_The_Force_Awakens_Theatrical_Poster.jpg",
-    title: `Movie Title ${index + 1}`,
-    summary: `This is the summary for Movie Title ${
-        index + 1
-    }. A brief description of the movie's plot and main themes.`,
-    rating: (Math.random() * 4 + 6).toFixed(1), // Generuje oceny w zakresie 6.0 - 10.0
-}));
+let movies = [
+    {
+        id: "1and3011",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg",
+        title: "Avengers Endgame",
+        summary:
+            "The Avengers assemble once more to undo the chaos caused by Thanos.",
+        rating: 5.3,
+    },
+    {
+        id: "2301abc",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/a/a2/Star_Wars_The_Force_Awakens_Theatrical_Poster.jpg",
+        title: "Star Wars: Episode VII - The Force Awakens",
+        summary:
+            "A new threat rises in the galaxy as Rey discovers her connection to the Force.",
+        rating: 8.2,
+    },
+    {
+        id: "301xyz12",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/7/7a/Spider-Man_No_Way_Home_poster.jpg",
+        title: "Spider-Man: No Way Home",
+        summary:
+            "Spider-Man faces multiversal foes after his identity is revealed.",
+        rating: 9.1,
+    },
+    {
+        id: "4401opq",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/1/1f/Inception_ver3.jpg",
+        title: "Inception",
+        summary:
+            "A thief who enters dreams must plant an idea into the mind of a CEO.",
+        rating: 8.8,
+    },
+    {
+        id: "5501lmn",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/2/22/The_Batman_%282022_film%29_poster.jpg",
+        title: "The Batman",
+        summary:
+            "Batman investigates corruption in Gotham and faces the Riddler.",
+        rating: 7.9,
+    },
+    {
+        id: "6601uvw",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/1/18/Interstellar_film_poster.jpg",
+        title: "Interstellar",
+        summary:
+            "A group of astronauts travels through a wormhole in search of a new home for humanity.",
+        rating: 8.6,
+    },
+    {
+        id: "7701efg",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/d/d2/Avatar_2009_poster.jpg",
+        title: "Avatar",
+        summary:
+            "A paraplegic marine dispatched to the moon Pandora becomes torn between following orders and protecting its world.",
+        rating: 7.8,
+    },
+    {
+        id: "8801rst",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/b/bc/Black_Panther_%28film%29_poster.jpg",
+        title: "Black Panther",
+        summary:
+            "T'Challa returns to Wakanda to take his place as king after his father's death.",
+        rating: 7.3,
+    },
+    {
+        id: "9901hij",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/3/33/Guardians_of_the_Galaxy_%28film%29_poster.jpg",
+        title: "Guardians of the Galaxy",
+        summary:
+            "A group of intergalactic criminals must work together to stop a fanatical warrior.",
+        rating: 8.0,
+    },
+    {
+        id: "101klop",
+        imageURL:
+            "https://upload.wikimedia.org/wikipedia/en/e/ec/Doctor_Strange_in_the_Multiverse_of_Madness_poster.jpg",
+        title: "Doctor Strange in the Multiverse of Madness",
+        summary: "Doctor Strange explores the multiverse to protect humanity.",
+        rating: 7.2,
+    },
+];
 
 let acceptedMovies = [];
 
