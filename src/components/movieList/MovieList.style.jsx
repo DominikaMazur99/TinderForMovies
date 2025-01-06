@@ -89,3 +89,19 @@ export const Arrow = styled.span`
     font-size: 2rem;
     margin: 0 10px;
 `;
+
+export const SwipeInfoWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+`;
+
+export const SwipeArrowWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2px;
+    padding: 10px 20px;
+`;

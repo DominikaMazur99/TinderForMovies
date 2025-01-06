@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import MovieItem from "./movieItem/MovieItem";
-import { SwiperContainer, Overlay, SwipeInfo, Arrow } from "./MovieList.style";
+import {
+    SwiperContainer,
+    Overlay,
+    SwipeInfo,
+    Arrow,
+    SwipeInfoWrapper,
+    SwipeArrowWrapper,
+} from "./MovieList.style";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const SwiperComponent = ({ movies, onReject, onAccept }) => {
@@ -82,7 +89,20 @@ const SwiperComponent = ({ movies, onReject, onAccept }) => {
                 )}
                 {imgClicked && (
                     <SwipeInfo>
-                        <p>Shift left to accept or right to delete</p>
+                        <SwipeInfoWrapper>
+                            <SwipeArrowWrapper>
+                                <Arrow>
+                                    <IoIosArrowBack />
+                                </Arrow>
+                                <p>Accept</p>
+                            </SwipeArrowWrapper>
+                            <SwipeArrowWrapper>
+                                <p>Reject</p>
+                                <Arrow>
+                                    <IoIosArrowForward />
+                                </Arrow>
+                            </SwipeArrowWrapper>
+                        </SwipeInfoWrapper>
                     </SwipeInfo>
                 )}
             </Overlay>
