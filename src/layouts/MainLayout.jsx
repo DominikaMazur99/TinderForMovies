@@ -83,7 +83,6 @@ const MainLayout = () => {
         setShowAcceptedMovies(false);
     };
     const isMobile = window.innerWidth <= 768;
-    console.log(movies);
 
     return (
         <>
