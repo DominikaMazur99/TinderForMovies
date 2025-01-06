@@ -19,19 +19,10 @@ Tinder for Movies is a fun and interactive app that allows users to accept or re
 
 ## How to Run the Project 🚀
 
-### 1. Clone or Download the Repository
+1. git clone https://github.com/your-username/tinder-for-movies.git
 
-````bash
-git clone https://github.com/your-username/tinder-for-movies.git
+2. npm install
 
-### 2. Install dependencies
-```bash
-npm install
+3. npm start
 
-### 3. Run app
-```bash
-npm start
-
-The app will run at:
-http://localhost:3000
-````
+## The app will run at: http://localhost:3000
