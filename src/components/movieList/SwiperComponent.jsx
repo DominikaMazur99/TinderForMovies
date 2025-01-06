@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import MovieItem from "./movieItem/MovieItem";
 import {
@@ -28,10 +28,19 @@ const SwiperComponent = ({ movies, onReject, onAccept }) => {
                 onAccept(currentMovie.id);
             }
 
-            setCurrentIndex((prev) => prev + 1);
+            setCurrentIndex((prev) => {
+                const nextIndex = prev + 1;
+                return nextIndex < movies.length ? nextIndex : prev;
+            });
         }
         resetSwipe();
     };
+
+    useEffect(() => {
+        if (currentIndex >= movies.length && movies.length > 0) {
+            setCurrentIndex(0); // Opcjonalnie zresetuj do pierwszego filmu
+        }
+    }, [movies]);
 
     const handleSwiping = (e) => {
         setSwipeDistance(e.deltaX);

@@ -27,21 +27,6 @@ const MovieItem = ({
         }
     }, [distanceChange]);
 
-    const renderButtons = () => (
-        <ButtonContainer style={{ bottom: "0" }}>
-            <IconButton
-                content={<SlCheck size={isMobile ? 50 : 35} color="green" />}
-                ariaLabel="Accept"
-                onClick={() => onAccept(movie.id)}
-            />
-            <IconButton
-                content={<SlClose size={isMobile ? 50 : 35} color="red" />}
-                onClick={() => onReject(movie.id)}
-                ariaLabel="Reject"
-            />
-        </ButtonContainer>
-    );
-
     return (
         <MovieCard $isMobile={isMobile}>
             <img
