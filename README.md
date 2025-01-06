@@ -2,11 +2,12 @@
 
 Tinder for Movies is a fun and interactive app that allows users to accept or reject movie recommendations, similar to the swipe-based interface of Tinder. Accepted movies are stored and can be accessed anytime through the library icon.
 
-Technologies Used 🛠️
-React – Frontend framework
-JavaScript – Core language
-Styled Components – CSS-in-JS for styling
-Axios
+## Technologies Used 🛠️
+
+1. React – Frontend framework
+2. JavaScript – Core language
+3. Styled Components – CSS-in-JS for styling
+4. Axios
 
 ## Features
 
