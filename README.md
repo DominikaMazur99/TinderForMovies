@@ -1,6 +1,6 @@
 # Tinder for Movies 🎬
 
-Tinder for Movies is a fun and interactive app that allows users to accept or reject movie recommendations, similar to the swipe-based interface of Tinder. Accepted movies are stored and can be accessed anytime through the library icon.
+Tinder for Movies is a fun and interactive app that allows users to accept or reject movie recommendations, similar to the swipe-based interface of Tinder. Accepted movies are stored and can be accessed through the library icon.
 
 ## Technologies Used 🛠️
 
