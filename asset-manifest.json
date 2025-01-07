@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/TinderForMovies/static/css/main.b11acabf.css",
-    "main.js": "/TinderForMovies/static/js/main.03c6f7ea.js",
+    "main.js": "/TinderForMovies/static/js/main.a3de14ae.js",
     "static/js/414.692d0e7d.chunk.js": "/TinderForMovies/static/js/414.692d0e7d.chunk.js",
     "static/js/488.e4a804eb.chunk.js": "/TinderForMovies/static/js/488.e4a804eb.chunk.js",
     "static/js/368.cfb570ec.chunk.js": "/TinderForMovies/static/js/368.cfb570ec.chunk.js",
     "index.html": "/TinderForMovies/index.html",
     "main.b11acabf.css.map": "/TinderForMovies/static/css/main.b11acabf.css.map",
-    "main.03c6f7ea.js.map": "/TinderForMovies/static/js/main.03c6f7ea.js.map",
+    "main.a3de14ae.js.map": "/TinderForMovies/static/js/main.a3de14ae.js.map",
     "414.692d0e7d.chunk.js.map": "/TinderForMovies/static/js/414.692d0e7d.chunk.js.map",
     "488.e4a804eb.chunk.js.map": "/TinderForMovies/static/js/488.e4a804eb.chunk.js.map",
     "368.cfb570ec.chunk.js.map": "/TinderForMovies/static/js/368.cfb570ec.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b11acabf.css",
-    "static/js/main.03c6f7ea.js"
+    "static/js/main.a3de14ae.js"
   ]
 }
