@@ -1,9 +1,12 @@
 import axios from "axios";
 
+const BASE_URL =
+    "https://tinder-for-movies-1n8eoiz6f-dominikamazur99s-projects.vercel.app";
+
 export const fetchData = async (url, method = "GET", data = null) => {
     const config = {
         method,
-        url: `http://localhost:3000/api${url}`,
+        url: `${BASE_URL}${url}`,
         data,
     };
 

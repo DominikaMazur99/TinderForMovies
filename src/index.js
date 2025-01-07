@@ -7,6 +7,17 @@ import { worker } from "./mocks/browser";
 
 if (process.env.NODE_ENV === "development") {
     worker.start();
+} else {
+    worker
+        .start({
+            serviceWorker: {
+                url: "/mockServiceWorker.js", // Kluczowy krok na produkcji
+            },
+            onUnhandledRequest: "bypass",
+        })
+        .then(() => {
+            console.log("Service Worker Registered!");
+        });
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
