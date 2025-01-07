@@ -50,7 +50,7 @@ let movies = [
 
 let acceptedMovies = [];
 
-export const handler = [
+export const handlers = [
     http.get("/api/recommendations", ({ request }) => {
         return new Response(JSON.stringify(movies), {
             headers: { "Content-Type": "application/json" },

@@ -17,7 +17,7 @@ const MainLayout = () => {
     useEffect(() => {
         const loadMovies = async () => {
             try {
-                const data = await fetchData("/api/recommendations");
+                const data = await fetchData("/recommendations");
                 setMovies(data);
             } catch (error) {
                 console.error("Failed to load movies.");
@@ -32,7 +32,7 @@ const MainLayout = () => {
     useEffect(() => {
         const loadAcceptedMovies = async () => {
             try {
-                const data = await fetchData("/api/recommendations/accepted");
+                const data = await fetchData("/recommendations/accepted");
                 setAcceptedMovies(data);
             } catch (error) {
                 console.error("Failed load accepted recommendations:", error);
@@ -45,7 +45,7 @@ const MainLayout = () => {
     const handleAccept = async (id) => {
         try {
             const updatedMovie = await fetchData(
-                `/api/recommendations/${id}`,
+                `/recommendations/${id}`,
                 "PATCH",
                 { status: "accepted" }
             );
@@ -62,7 +62,7 @@ const MainLayout = () => {
     const handleReject = async (id) => {
         try {
             const updatedMovie = await fetchData(
-                `/api/recommendations/${id}`,
+                `/recommendations/${id}`,
                 "PATCH",
                 { status: "rejected" }
             );

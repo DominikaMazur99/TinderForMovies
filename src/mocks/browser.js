@@ -1,8 +1,4 @@
 import { setupWorker } from "msw/browser";
-import { handler } from "./handler";
+import { handlers } from "./handler";
 
-export const worker = setupWorker(...handler);
-
-worker.start({
-    onUnhandledRequest: "bypass",
-});
+export const worker = setupWorker(...handlers);
