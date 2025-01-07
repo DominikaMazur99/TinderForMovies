@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "/api";
+const BASE_URL = "https://dominikamazur99.github.io/api";
 
 export const fetchData = async (url, method = "GET", data = null) => {
     const config = {

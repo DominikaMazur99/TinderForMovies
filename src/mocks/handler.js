@@ -51,43 +51,52 @@ let movies = [
 let acceptedMovies = [];
 
 export const handler = [
-    http.get("/api/recommendations", ({ request }) => {
-        return new Response(JSON.stringify(movies), {
-            headers: { "Content-Type": "application/json" },
-            status: 200,
-        });
-    }),
-    http.get("/api/recommendations/accepted", () => {
-        return new Response(JSON.stringify(acceptedMovies), {
-            headers: { "Content-Type": "application/json" },
-            status: 200,
-        });
-    }),
-    http.patch("/api/recommendations/:id", async ({ params, request }) => {
-        const { id } = params;
-        const { status } = await request.json();
-
-        const movieIndex = movies.findIndex((movie) => movie.id === id);
-
-        if (movieIndex === -1) {
-            return new Response(
-                JSON.stringify({ message: "Movie not found" }),
-                { status: 404 }
-            );
+    http.get(
+        "https://dominikamazur99.github.io//api/recommendations",
+        ({ request }) => {
+            return new Response(JSON.stringify(movies), {
+                headers: { "Content-Type": "application/json" },
+                status: 200,
+            });
         }
-
-        const movie = movies[movieIndex];
-
-        if (status === "accepted") {
-            acceptedMovies.push(movie);
+    ),
+    http.get(
+        "https://dominikamazur99.github.io//api/recommendations/accepted",
+        () => {
+            return new Response(JSON.stringify(acceptedMovies), {
+                headers: { "Content-Type": "application/json" },
+                status: 200,
+            });
         }
+    ),
+    http.patch(
+        "https://dominikamazur99.github.io//api/recommendations/:id",
+        async ({ params, request }) => {
+            const { id } = params;
+            const { status } = await request.json();
 
-        // Usuń film z listy głównej (accepted/rejected)
-        movies = movies.filter((movie) => movie.id !== id);
+            const movieIndex = movies.findIndex((movie) => movie.id === id);
 
-        return new Response(JSON.stringify(movie), {
-            headers: { "Content-Type": "application/json" },
-            status: 200,
-        });
-    }),
+            if (movieIndex === -1) {
+                return new Response(
+                    JSON.stringify({ message: "Movie not found" }),
+                    { status: 404 }
+                );
+            }
+
+            const movie = movies[movieIndex];
+
+            if (status === "accepted") {
+                acceptedMovies.push(movie);
+            }
+
+            // Usuń film z listy głównej (accepted/rejected)
+            movies = movies.filter((movie) => movie.id !== id);
+
+            return new Response(JSON.stringify(movie), {
+                headers: { "Content-Type": "application/json" },
+                status: 200,
+            });
+        }
+    ),
 ];
