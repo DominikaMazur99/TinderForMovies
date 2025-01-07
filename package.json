@@ -55,8 +55,9 @@
   },
   "msw": {
     "workerDirectory": [
-      "public",
-      "build"
+      "./public",
+      "build",
+      "public"
     ]
   }
 }
